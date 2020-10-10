@@ -15,7 +15,7 @@ public class TimeDemo {
     public void test(){
         /*System.out.println(System.currentTimeMillis());*/
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
-        System.out.println(simpleDateFormat.format(new Date()));
+        System.out.println(simpleDateFormat.format(""+new Date()));
 
 
         /*
