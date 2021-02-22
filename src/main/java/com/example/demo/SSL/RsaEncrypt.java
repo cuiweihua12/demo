@@ -77,7 +77,7 @@ public class RsaEncrypt {
      * @throws SignatureException
      *             验签失败，则抛异常
      */
-    boolean doCheck(String content, byte[] sign, RSAPublicKey pubKey)
+    public boolean doCheck(String content, byte[] sign, RSAPublicKey pubKey)
             throws SignatureException {
         try {
             Signature signature = Signature.getInstance("SHA1withRSA");
@@ -138,6 +138,15 @@ public class RsaEncrypt {
         KeyPair keyPair = keyPairGen.generateKeyPair();
         this.privateKey = (RSAPrivateKey) keyPair.getPrivate();
         this.publicKey = (RSAPublicKey) keyPair.getPublic();
+    }
+
+    public RsaEncrypt() {
+        try {
+            loadPublicKey(DEFAULT_PUBLIC_KEY);
+            loadPrivateKey(DEFAULT_PRIVATE_KEY);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     /**
